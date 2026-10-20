@@ -1,0 +1,24 @@
+# Firebase App Hosting config — https://firebase.google.com/docs/app-hosting/configure
+runConfig:
+  # One instance keeps the in-memory page cache and admin edits consistent.
+  # A small shop rarely needs more; raise only if traffic demands it.
+  minInstances: 0
+  maxInstances: 1
+  concurrency: 80
+  cpu: 1
+  memoryMiB: 1024
+
+env:
+  - variable: DATA_STORE
+    value: firestore
+    availability: [ BUILD, RUNTIME ]
+
+  # Change to your live URL (custom domain or the *.hosted.app URL shown after the first deploy).
+  - variable: NEXT_PUBLIC_SITE_URL
+    value: https://fashion-hub--fashionhub02-72b2c.asia-southeast1.hosted.app
+    availability: [ BUILD, RUNTIME ]
+  - variable: ADMIN_PASSWORD
+    secret: adminPassword
+  - variable: ADMIN_SESSION_SECRET
+    secret: adminSessionSecret
+    availability: [ RUNTIME ]
